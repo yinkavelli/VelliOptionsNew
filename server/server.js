@@ -27,12 +27,17 @@ app.get('*', (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, '0.0.0.0', () => {
-    const hasKey = !!process.env.MASSIVE_API_KEY;
-    const hasAV = !!process.env.ALPHA_VANTAGE_KEY;
-    console.log(`\n  ⚡ Option Intel server running on:`);
-    console.log(`     Local:   http://localhost:${PORT}`);
-    console.log(`     Network: http://192.168.1.99:${PORT}`);
-    console.log(`  🔑 Massive API Key: ${hasKey ? 'configured' : 'MISSING'}`);
-    console.log(`  📊 Alpha Vantage:   ${hasAV ? 'configured' : 'MISSING'}\n`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, '0.0.0.0', () => {
+        const hasKey = !!process.env.MASSIVE_API_KEY;
+        const hasAV = !!process.env.ALPHA_VANTAGE_KEY;
+        console.log(`\n  ⚡ Option Intel server running on:`);
+        console.log(`     Local:   http://localhost:${PORT}`);
+        console.log(`     Network: http://192.168.1.99:${PORT}`);
+        console.log(`  🔑 Massive API Key: ${hasKey ? 'configured' : 'MISSING'}`);
+        console.log(`  📊 Alpha Vantage:   ${hasAV ? 'configured' : 'MISSING'}\n`);
+    });
+}
+
+// Export for Vercel
+module.exports = app;
