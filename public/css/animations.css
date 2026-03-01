@@ -1,0 +1,200 @@
+/* ===== ANIMATIONS & KEYFRAMES ===== */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== ANIMATION UTILITIES ===== */
+
+.anim-fade-in {
+    animation: fadeIn 300ms ease-out;
+}
+
+.anim-fade-in-up {
+    animation: fadeInUp 300ms ease-out;
+}
+
+.anim-fade-in-scale {
+    animation: fadeInScale 200ms ease-out;
+}
+
+.anim-slide-in-right {
+    animation: slideInRight 300ms ease-out;
+}
+
+/* Staggered children */
+.stagger>* {
+    animation: fadeInUp 300ms ease-out both;
+}
+
+.stagger>*:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.stagger>*:nth-child(2) {
+    animation-delay: 50ms;
+}
+
+.stagger>*:nth-child(3) {
+    animation-delay: 100ms;
+}
+
+.stagger>*:nth-child(4) {
+    animation-delay: 150ms;
+}
+
+.stagger>*:nth-child(5) {
+    animation-delay: 200ms;
+}
+
+.stagger>*:nth-child(6) {
+    animation-delay: 250ms;
+}
+
+.stagger>*:nth-child(7) {
+    animation-delay: 300ms;
+}
+
+.stagger>*:nth-child(8) {
+    animation-delay: 350ms;
+}
+
+.stagger>*:nth-child(9) {
+    animation-delay: 400ms;
+}
+
+.stagger>*:nth-child(10) {
+    animation-delay: 450ms;
+}
+
+.stagger>*:nth-child(11) {
+    animation-delay: 500ms;
+}
+
+.stagger>*:nth-child(12) {
+    animation-delay: 550ms;
+}
+
+/* Number change animation */
+.number-anim {
+    display: inline-block;
+    animation: countUp 400ms ease-out;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
